@@ -1,6 +1,7 @@
 # TwittMap
 
 This project is the assignment of the course Cloud Computing at Columbia University
+The web application is available on http://twittmap-env.elasticbeanstalk.com/TwittMap.jsp
 
 # Front-End:
 
@@ -18,24 +19,24 @@ When starting the program, it shows “Initializing” instead.
 
 # Back-End
 
-The back-end side is implement by Java Web Development and is running on Tomcat server.
-It uses JDBC to access to the RDS database and is implemented with RESTful APIs by Java Servlet.
+The back-end side is implemented by Java Web Development and is running on Tomcat 8.0 server.
+It uses JDBC to access to AWS RDS mySQL database and is implemented with RESTful APIs in Java Servlet.
 The back-end server is designed with two main functions:
 
-(1) getTwitt
+(1) get new tweet
 
-TwittGet.java and TwittGetTask.java is responsible for getting new twitt by Twitter API and store these data into 
-a MySQL database running on Amazon RDS.
+TwittGet.java and TwittGetTask.java are responsible for getting new twitt by Twitter API and store these data into 
+the MySQL database running on Amazon RDS. It uses four thread and tweet filter to get tweet according to keywords.
 
-(2)back-end server
+(2) servlet
 
 BackendServlet.java is the back-end server program deployed by AWS elastic Beanstalk. The server program is designed
 for receiving HTTP GET request and reading geo information from database and then sending back to the front-end.
 
 # Deployment
 
-1. We create an Ubuntu 64-bit ec2 instance
-2. We create an elastic beanstalk application
+1. We created an Ubuntu 64-bit ec2 instance
+2. We created an elastic beanstalk application
 3. With load balancing, we upload the war file of the project and deployed it using elastic beanstalk
 
 
